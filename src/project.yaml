@@ -1,4 +1,4 @@
-image: localhost/klakegg/hugo
+image: localhost/dirkthedaring/hugo
 version: 0.113.0
 
 platforms:

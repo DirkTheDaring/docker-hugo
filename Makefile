@@ -19,6 +19,11 @@ prepare: src/bin/buildx
 	@cp target/bundle/Makefile target/bundle/Makefile.original
 	@sed -i 's/@DOCKER_CLI_EXPERIMENTAL=enabled docker buildx/podman/' target/bundle/Makefile
 	@sed -i 's/docker run/podman run/' target/bundle/Makefile
+	# Support pandoc 3.5
+	@sed -i 's/Compiled with pandoc/pandoc-default/' target/bundle/Makefile
+	# remove type=docker lines, at they are not supported in podman
+	@sed -i '/type=docker/d' target/bundle/Makefile
+	# Only build amd64
 	@sed -i 's:linux/amd64$(_comma).*):linux/amd64):' target/bundle/Makefile
 
 test: test-docsy test-docuapi
