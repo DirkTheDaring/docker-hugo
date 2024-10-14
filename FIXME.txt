@@ -1,0 +1,10 @@
+When I try to build images from said Dockerfiles with podman version 2.1.1, I get the error message:
+"SHELL is not supported for OCI image format".
+https://github.com/containers/podman/issues/8477
+
+-->
+You can use the --format docker flag, to support this option. This option did not make it into the OCI specification.  Podman defaults to building OCI images.
+
+
+
+
