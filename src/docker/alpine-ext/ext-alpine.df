@@ -34,7 +34,7 @@ RUN true \
  && npm install -g autoprefixer@10.4.14 postcss@8.4.24 postcss-cli@10.1.0 yarn@1.22.19 @babel/cli @babel/core \
  #
  # Install rst2html
- && pip install --break-system-packages rst2html \
+ && apk add py3-docutils \
  #
  # Cleaning
  && apk del py-pip py-setuptools \ 

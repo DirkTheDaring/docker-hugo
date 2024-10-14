@@ -14,7 +14,7 @@ build-debug: src/bin/buildx
 prepare: src/bin/buildx
 	@rm -rf target/bundle
 	-@podman run --rm -i -v $$(pwd):/work --userns keep-id:uid=$$(id -u),gid=$$(id -g)\
-		localhost/docker-project-prepare:edge \
+		dirkthedaring/docker-project-prepare:edge \
 		-t target/bundle
 	@cp target/bundle/Makefile target/bundle/Makefile.original
 	@sed -i 's/@DOCKER_CLI_EXPERIMENTAL=enabled docker buildx/podman/' target/bundle/Makefile
